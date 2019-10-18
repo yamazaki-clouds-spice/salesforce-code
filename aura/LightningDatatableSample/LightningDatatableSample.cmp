@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes"
+    controller="LightningDatatableSampleController" access="global">
+	<!-- 初期処理 -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <!-- ループ用ラッパークラス -->
+    <aura:attribute name="itemWrapperList" type="ItemWrapper[]" default="[]" />
+    <!-- データテーブルのカラム設定 -->
+    <aura:attribute name="datatableColumns" type="List"/>
+
+    <lightning:card title="sample">
+        <div class="container">
+            <!-- データテーブル -->
+            <lightning:datatable data="{!v.itemWrapperList}"
+            columns="{!v.datatableColumns}"
+            keyField="index"
+            hideCheckboxColumn="true"
+            onrowaction="{!c.onclickRowAction}" />
+        </div>
+    </lightning:card>
+
+</aura:component>	
